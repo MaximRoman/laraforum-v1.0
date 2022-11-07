@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                    {{ __('Questions:') }}
+                    {{ __('Question:') }}
                 </div>
                 <div class="card-body">
                     <form class="form-group row align-items-center justify-content-end gap-3" action="/home/{{$question->id}}" method="POST">

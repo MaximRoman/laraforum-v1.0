@@ -13,10 +13,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="icon" href={{ asset("/pictures/large.png") }}>
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href={{ asset('/css/app.css') }}>
 
+    {{-- css --}}
+    <link rel="stylesheet" href={{ asset('/css/app.css') }}>
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app" class="wrapper">

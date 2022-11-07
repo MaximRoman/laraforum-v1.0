@@ -3,38 +3,39 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-9 d-flex flex-column gap-2">
             <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     {{ __('Questions:') }}
                     <a class="btn btn-primary" href="/add-qustion">Add new Question</a>
                 </div>
-                <div class="card-body d-flex flex-column gap-2">
-                    @forelse ($questions as $item)
-                        <div class="card">
-                            <div class="card-header d-flex align-items-center justify-content-between">
-                                <span>{{ $item->name }}</span>
-                                @if (isset($user->id) && isset($item->user_id))
-                                    @if ($item->user_id === $user->id)
-                                        <div class="d-flex gap-1">
-                                            <a class="btn btn-primary" href="/edit-question/{{$item->id}}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a class="btn btn-danger" href="/delete-question/{{$item->id}}"><i class="fa-solid fa-trash-can"></i></a>
-                                        </div>
-                                    @endif
-                                @endif
-                            </div>
-                            <div class="card-body">
-                                <p>{{ $item->question }}</p>
-                            </div>
-                            <div class="card-footer">
-                                <span>{{ $item->created_at }}</span>
-                            </div>
-                        </div>
-                    @empty
-                        <h1>Questions list is empty!</h1>
-                    @endforelse
-                </div>
             </div>
+            @forelse ($questions as $item)
+                <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <span>{{ $item->name }}</span>
+                        @if (isset($user->id) && isset($item->user_id))
+                            @if ($item->user_id === $user->id)
+                                <div class="d-flex gap-1">
+                                    <a class="btn btn-primary" href="/edit-question/{{$item->id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="btn btn-danger" href="/delete-question/{{$item->id}}"><i class="fa-solid fa-trash-can"></i></a>
+                                </div>
+                            @endif
+                        @endif
+                    </div>
+                    <div class="card-body row">
+                        <textarea class="col-12 form-control" disabled rows="5" >{{ $item->question }}</textarea>
+                    </div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <span>{{ $item->created_at }}</span>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary" href="/answers/{{$item->id}}">Show Answers</i></a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <h1>Questions list is empty!</h1>
+            @endforelse
         </div>
         <div class="col-md-3">
             <div class="card">
