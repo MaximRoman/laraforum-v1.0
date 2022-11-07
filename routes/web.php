@@ -17,7 +17,7 @@ use App\Http\Controllers\QuestionController;
 |
 */
 
-Route::get('/', [HomeController::class, 'home'])->name('homeFilter');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Auth::routes();
 
