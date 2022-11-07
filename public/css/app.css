@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px auto 80px;
+}
+
+img {
+    height: 44px;
+}
+
+textarea {
+    resize: none!important;
+    overflow: auto;
+}
+
+.fbtn {
+    height: 50%;
+}
