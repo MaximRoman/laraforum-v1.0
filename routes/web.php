@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AnswerController;
-use App\Http\Controllers\EditProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -37,5 +36,3 @@ Route::get('/delete-answer/{answer}', [AnswerController::class, 'delete'])->name
 Route::put('/answers/{answer}', [AnswerController::class, 'update'])->name('update-answer')->middleware('auth');
 Route::get('/answers/{question}', [AnswerController::class, 'show'])->name('answers');
 Route::post('/answers', [AnswerController::class, 'create'])->name('create-answer')->middleware('auth');
-
-Route::get('/edit-profile', [EditProfileController::class, 'editProfile'])->name('editProfile')->middleware('auth');
